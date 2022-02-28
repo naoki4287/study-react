@@ -4,7 +4,7 @@ import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // const handleClick = (e) => {
 //   console.log(e.target.href);
@@ -12,21 +12,21 @@ import { useCallback, useEffect } from "react";
 // }
 
 export default function Home() {
-  const foo = 1;
-  const handleClick = useCallback((e) => {
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+  //分割代入
+  const [foo, setFoo] = useState(1)
+
+  const handleClick = (e) => {
+    setFoo((foo) => foo + 1);
+    setFoo((foo) => foo + 1);
+  };
 
   useEffect(() => {
-    console.log("マウント時")
     document.body.style.backgroundColor = "lightblue"
     return () => {
-    console.log("アンマウント時");
     document.body.style.backgroundColor = ""
     }
   }, [])
+
 
   return (
     <div className={styles.container}>
@@ -34,9 +34,10 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      <a href="/about" onClick={handleClick}>
+      <h1>{foo}</h1>
+      <button href="/about" onClick={handleClick}>
         ボタン
-      </a>
+      </button>
       <Main page="index" />
       <Footer />
     </div>
