@@ -10,10 +10,8 @@ import { useBgLightBlue } from "src/hooks/useBgLightBlue";
 
 
 export default function Home(props) {
-  console.log(props);
-  const { foo, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
-  useBgLightBlue();
+  const { foo, isShow, handleClick, handleDisplay,text, array, handleChange, handleAdd } = props;
+  
 
   return (
     <div className={styles.container}>
