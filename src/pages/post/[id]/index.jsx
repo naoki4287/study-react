@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 const PostId = () => {
   const router = useRouter();
-
+ 
   return (
     <div className={styles.container}>
       <Head>
