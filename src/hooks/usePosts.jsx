@@ -1,19 +1,9 @@
+import { fetcher } from "src/utils/fetcher";
 import useSWR from "swr";
-
-const fetcher = async (url) => {
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error("エラーが発生したため、データの取得に失敗しました");
-  }
-
-  const json = await response.json();
-  return json;
-};
 
 export const usePosts = () => {
   const { data, error } = useSWR(
-    "https://jsonplaceholder.typicode.com/posts ",
+    "https://jsonplaceholder.typicode.com/posts",
     fetcher
   );
   // バージョンアップによりuseSWRの第二引数にfetcherが必須になった
