@@ -3,7 +3,7 @@ import { usePosts } from "src/hooks/usePosts";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
-  
+
   if (isLoading) {
     return <div>ローディング中</div>;
   }
@@ -19,11 +19,13 @@ export const Posts = () => {
   return (
     <ol>
       {data.map((post) => {
-        return <li key={post.id}>
-          <Link href={`/posts/${post.id}`}>
-          <a>{post.title}</a>
-          </Link>
-          </li>;
+        return (
+          <li key={post.id}>
+            <Link href={`/posts/${post.id}`}>
+              <a>{post.name}</a>
+            </Link>
+          </li>
+        );
       })}
     </ol>
   );
