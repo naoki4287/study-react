@@ -12,25 +12,20 @@ const useFetchArray = (url) => {
   };
 };
 
-const API_URL = "https://jsonplaceholder.typicode.com"
+const API_URL = "https://jsonplaceholder.typicode.com";
 
 export const useComments = () => {
-  return useFetchArray(
-    `${API_URL}/comments`,
-    fetcher
-  );
+  return useFetchArray(`${API_URL}/comments`, fetcher);
 };
 
 export const usePosts = () => {
-  return useFetchArray(
-    `${API_URL}/posts`,
-   fetcher
-  );
+  return useFetchArray(`${API_URL}/posts`, fetcher);
 };
 
 export const useUsers = () => {
-  return useFetchArray(
-    `${API_URL}/users`,
-   fetcher
-  );
+  return useFetchArray(`${API_URL}/users`, fetcher);
+};
+
+export const useCommentsByPostId = (id) => {
+  return useFetchArray(id ? `${API_URL}/comments?postId=${id}` : null, fetcher);
 };
