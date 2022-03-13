@@ -1,4 +1,5 @@
-const { useUser } = require("src/hooks/useUser");
+import { PostsByUserId } from "src/components/Posts/PostsByUserId";
+import { useUser } from "src/hooks/useUser";
 
 export const UserComponent = () => {
   const { data, error, isLoading } = useUser();
@@ -11,9 +12,12 @@ export const UserComponent = () => {
     return <div>{error.message}</div>;
   }
 
+  // そのユーザーが投稿した記事（post)を表示させる
+
   return (
     <div>
       <h1>{data.name}</h1>
+      <h2>詳細</h2>
       <ul>
         <li>{data.email}</li>
         <li>{data.username}</li>
@@ -22,6 +26,9 @@ export const UserComponent = () => {
         <li>{data.website}</li>
         <li>{data.company.name}</li>
       </ul>
+      <h2>投稿</h2>
+      <PostsByUserId id={data.id} />
+
     </div>
   );
 };
