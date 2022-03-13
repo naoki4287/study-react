@@ -12,8 +12,6 @@ export const UserComponent = () => {
     return <div>{error.message}</div>;
   }
 
-  // そのユーザーが投稿した記事（post)を表示させる
-
   return (
     <div>
       <h1 className="font-bold text-3xl">{data.name}</h1>
