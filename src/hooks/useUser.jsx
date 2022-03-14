@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { API_URL } from "src/utils/const";
 import { fetcher } from "src/utils/fetcher";
 import useSWRImmutable from "swr/immutable";
 
